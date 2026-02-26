@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>Our Company - Kuat Solutions</title>
+    <meta name="description" content="Kuat Solutions is an international industrial engineering and project support company operating between Hong Kong and Europe." />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        sofia: ['Sofia Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Sofia+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Sofia Sans', sans-serif; }
+        .font-poppins { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+
+<body class="antialiased relative min-h-screen">
+    
+    <nav class="fixed top-2 rounded-2xl border overflow-hidden backdrop-blur-sm bg-white shadow left-2 right-2 z-[100]" style="border-radius:16px">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 text-foreground">
+                <div class="flex items-center">
+                    <a href="../index.html">
+                        <div class="flex items-center px-4 py-1">
+                            <img alt="Kuat Solutions Logo" width="40" height="40" class="object-contain h-10" src="../images/kuat-logo.png" />
+                            <p class="text-2xl font-bold font-poppins ml-2">Kuat Solutions</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sm:hidden">
+                    <button class="inline-flex items-center justify-center p-2 rounded-md hover:bg-gray-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg>
+                    </button>
+                </div>
+                <ul class="hidden sm:flex gap-8 items-center ml-auto">
+                    <li><div class="px-3 py-2 text-xl rounded-md font-medium"><a class="block" href="../about.html">About</a></div></li>
+                    <li><div class="px-3 py-2 text-xl rounded-md font-medium"><a class="block" href="../services.html">Services</a></div></li>
+                    <li><div class="px-3 py-2 text-xl rounded-md font-medium"><a class="block" href="../products.html">Products</a></div></li>
+                    <li><div class="px-3 py-2 text-xl rounded-md font-medium"><a class="block" href="../partners.html">Partners</a></div></li>
+                    <li><div class="px-3 py-2 text-xl rounded-md font-medium"><a class="block" href="../contact.html">Contact</a></div></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="min-h-screen py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 mt-10">
+            <h1 class="text-4xl font-bold text-center mb-16 text-gray-900">Our Company</h1>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                <div class="flex items-center justify-center">
+                    <div class="relative">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="relative">
+                                <img alt="Hong Kong" loading="lazy" width="200" height="200" class="rounded-lg object-cover w-full h-48 brightness-75" src="../images/hk.jpg">
+                            </div>
+                            <div class="relative">
+                                <img alt="Rome" loading="lazy" width="200" height="200" class="rounded-lg object-cover w-full h-48 brightness-75" src="../images/rome.jpg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col justify-center">
+                    <p class="text-lg leading-relaxed mb-8 text-gray-700">Kuat Solutions is an international industrial engineering and project support company operating between Hong Kong and Europe. With our team based in Italy, we work closely with leading European manufacturers, enabling fast negotiations, direct sourcing, and efficient coordination on the ground.</p>
+                    <p class="text-lg leading-relaxed mb-8 text-gray-700">Our presence in Hong Kong provides global reach in logistics and trade, while our on-the-ground presence in Italy allows us to support projects with strong local insight and established partnerships. This structure enables us to deliver complex industrial solutions with speed, flexibility, and a high level of execution across regions.</p>
+                </div>
+            </div>
+
+            <div class="p-8 border rounded-2xl">
+                <h3 class="text-xl font-bold mb-8 text-gray-900">Our Expertise</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-10 h-10 bg-black rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-white"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"></path><path d="M12 22V12"></path><polyline points="3.29 7 12 12 20.71 7"></polyline><path d="m7.5 4.27 9 5.15"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-1 text-gray-900">Sourcing & Trading</h4>
+                            <p class="text-gray-600 text-sm">Our sourcing materials service connects you with high-quality industrial components from trusted global suppliers. We manage the entire procurement process, ensuring cost-effectiveness, reliability, and timely delivery.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-10 h-10 bg-black rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-white"><path d="M12 10.189V14"></path><path d="M12 2v3"></path><path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"></path><path d="M19.38 20A11.6 11.6 0 0 0 21 14l-8.188-3.639a2 2 0 0 0-1.624 0L3 14a11.6 11.6 0 0 0 2.81 7.76"></path><path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1s1.2 1 2.5 1c2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-1 text-gray-900">Import/Export</h4>
+                            <p class="text-gray-600 text-sm">Professional import and export services managing the full trade process, from procurement to customs clearance and logistics coordination, ensuring smooth cross-border operations.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-10 h-10 bg-black rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-white"><path d="M10 5H3"></path><path d="M12 19H3"></path><path d="M14 3v4"></path><path d="M16 17v4"></path><path d="M21 12h-9"></path><path d="M21 19h-5"></path><path d="M21 5h-7"></path><path d="M8 10v4"></path><path d="M8 12H3"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-1 text-gray-900">Technical selection support</h4>
+                            <p class="text-gray-600 text-sm">Identifying and providing tailored solutions to your operational requirements. We guide you through the technical selection process to ensure long-term reliability.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-10 h-10 bg-black rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-white"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path><path d="M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path><circle cx="17" cy="18" r="2"></circle><circle cx="7" cy="18" r="2"></circle></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-1 text-gray-900">Logistics Solutions</h4>
+                            <p class="text-gray-600 text-sm">Safe and efficient transportation of industrial equipment. We partner with leading carriers to offer customized shipping, tracking, and insurance worldwide.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-10 h-10 bg-black rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-white"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-1 text-gray-900">After Sales Services</h4>
+                            <p class="text-gray-600 text-sm">Technical troubleshooting and ongoing support to ensure optimal performance throughout the product's lifecycle.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white py-12 border-t">
+        <div class="container max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-gray-900">Contact Us</h3>
+                    <div class="space-y-2">
+                        <p class="text-sm text-gray-600">+7 700 090 77 52</p>
+                        <p class="text-sm text-gray-600">+39 344 462 68 20</p>
+                        <p class="text-sm text-gray-600">info@kuat-solutions.com</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-gray-900">Address</h3>
+                    <p class="text-sm text-gray-600">Unit 2A, 17F Glenealy Tower<br/>No.1 Glenealy, Hong Kong</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-gray-900">Location</h3>
+                    <div class="w-full h-32 bg-gray-200 rounded-lg overflow-hidden">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.8797143171325!2d114.1528643!3d22.2825008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3404007b0e12271d%3A0xc47e303496396e4!2sGlenealy%20Tower!5e0!3m2!1sen!2shk!4v1700000000000!5m2!1sen!2shk" width="100%" height="100%" style="border:0" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-sm text-gray-600 mb-4 md:mb-0">© 2025 Kuat. All rights reserved.</p>
+                    <nav class="flex space-x-6">
+                        <a class="text-sm text-gray-600 hover:text-black" href="../index.html">Home</a>
+                        <a class="text-sm text-gray-600 hover:text-black" href="../about.html">About</a>
+                        <a class="text-sm text-gray-600 hover:text-black" href="../products.html">Products</a>
+                        <a class="text-sm text-gray-600 hover:text-black" href="../services.html">Services</a>
+                        <a class="text-sm text-gray-600 hover:text-black" href="../contact.html">Contact</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
