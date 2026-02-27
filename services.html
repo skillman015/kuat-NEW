@@ -330,7 +330,11 @@
             </div>
         </div>
     </footer>
-
+    <script>
+        document.getElementById('phoneInput').addEventListener('input', function (e) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+    </script>
     <script>
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
