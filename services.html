@@ -59,18 +59,49 @@
         .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .gap-4 { gap: 1rem; }
         .space-y-4 > * + * { margin-top: 1rem; }
+        /* Анимация мобильного меню */
+        #mobile-menu {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.5s ease-in-out;
+        }
+
+        #mobile-menu.open {
+            max-height: 500px;
+            opacity: 1;
+            padding-bottom: 20px;
+        }
+
+        #mobile-menu a {
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.4s ease;
+        }
+
+        #mobile-menu.open a {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Очередность появления ссылок */
+        #mobile-menu.open a:nth-child(1) { transition-delay: 0.1s; }
+        #mobile-menu.open a:nth-child(2) { transition-delay: 0.2s; }
+        #mobile-menu.open a:nth-child(3) { transition-delay: 0.3s; }
+        #mobile-menu.open a:nth-child(4) { transition-delay: 0.4s; }
+        #mobile-menu.open a:nth-child(5) { transition-delay: 0.5s; }
     </style>
 </head>
 <body class="antialiased relative min-h-screen bg-white text-gray-900">
 
-    <nav class="fixed top-2 left-2 right-2 z-[100] rounded-2xl border border-gray-100 overflow-hidden backdrop-blur-sm bg-white/90 shadow-sm" style="border-radius:16px">
+    <nav class="fixed top-2 left-2 right-2 z-[100] rounded-2xl border bg-white shadow" style="border-radius:16px">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16 text-foreground">
                 <div class="flex items-center">
                     <a href="index.html">
                         <div class="flex items-center px-4 py-1">
                             <img alt="Kuat Solutions Logo" width="40" height="40" class="object-contain h-10" src="images/kuat-logo.png" />
-                            <p class="text-2xl font-bold font-poppins ml-2">Kuat Solutions</p>
+                            <p class="text-2xl font-bold font-poppins">Kuat Solutions</p>
                         </div>
                     </a>
                 </div>
@@ -92,8 +123,8 @@
                         </div>
                     </li>
                     <li>
-                        <div class="px-3 py-2 text-xl rounded-md font-medium border-b-2 border-black">
-                            <a class="block text-black" href="services.html">Services</a>
+                        <div class="px-3 py-2 text-xl rounded-md font-medium hover:bg-gray-50 transition-all">
+                            <a class="block" href="services.html">Services</a>
                         </div>
                     </li>
                     <li>
@@ -115,7 +146,7 @@
             </div>
         </div>
     
-        <div id="mobile-menu" class="hidden sm:hidden border-t bg-white px-4 py-6 space-y-4">
+        <div id="mobile-menu" class="sm:hidden border-t bg-white px-4 space-y-2 text-center">
             <a href="about.html" class="block text-xl px-4 py-2 hover:bg-gray-50 rounded-lg">About</a>
             <a href="services.html" class="block text-xl px-4 py-2 font-bold bg-gray-50 rounded-lg">Services</a>
             <a href="products.html" class="block text-xl px-4 py-2 hover:bg-gray-50 rounded-lg">Products</a>
@@ -124,13 +155,6 @@
         </div>
     </nav>
     
-    <script>
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-    </script>
-
     <main class="min-h-screen py-32 bg-white">
         <div class="max-w-7xl mx-auto px-4">
             <h1 class="text-4xl md:text-5xl font-bold text-center mb-16 font-poppins text-gray-900">Our Services</h1>
@@ -310,7 +334,10 @@
     <script>
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
-        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('open'); // Теперь переключаем класс open вместо hidden
+        });
 
         const modal = document.getElementById('quoteModal');
         const openBtn = document.getElementById('openModalBtn');

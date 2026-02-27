@@ -4,6 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kuat Solutions - Innovative Industrial Solutions Worldwide</title>
+    <meta name="description" content="Delivering expert industrial engineering, automation systems, and global logistics for efficient project management and sourcing.">
+    
+    <meta property="og:title" content="Kuat Solutions">
+    <meta property="og:description" content="Leading provider of industrial solutions and automation systems.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,71 +34,125 @@
     
     <style>
         body { font-family: 'Sofia Sans', sans-serif; }
+        .font-poppins { font-family: 'Poppins', sans-serif; }
         .drop-shadow-lg { filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.5)); }
-        html { scroll-behavior: smooth; } /* Плавный скролл для кнопки */
+        html { scroll-behavior: smooth; } 
 
-        /* Фон модалки (оверлей) */
+        /* Стили для модального окна (Contact Form) */
         .modal-overlay {
-            display: none; /* Скрыто по умолчанию */
+            display: none; 
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Затемнение */
+            background-color: rgba(0, 0, 0, 0.5);
             z-index: 1000;
             justify-content: center;
             align-items: center;
             padding: 20px;
         }
-
-        /* Класс для отображения модалки */
         .modal-overlay.active {
             display: flex;
         }
 
-        /* Стили для сетки (если вы не используете Tailwind) */
-        .grid { display: grid; }
-        .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        .gap-4 { gap: 1rem; }
-        .space-y-4 > * + * { margin-top: 1rem; }
+        /* Плавное раскрытие блока меню */
+#mobile-menu {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+}
+
+/* Когда меню открыто */
+#mobile-menu.open {
+    max-height: 500px; /* запас высоты */
+    opacity: 1;
+    padding-bottom: 20px;
+}
+
+/* Начальное состояние ссылок (сдвинуты вверх и прозрачные) */
+#mobile-menu a {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.4s ease;
+}
+
+/* Финальное состояние ссылок при открытии */
+#mobile-menu.open a {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Очередность появления ссылок (каскад) */
+#mobile-menu.open a:nth-child(1) { transition-delay: 0.1s; }
+#mobile-menu.open a:nth-child(2) { transition-delay: 0.2s; }
+#mobile-menu.open a:nth-child(3) { transition-delay: 0.3s; }
+#mobile-menu.open a:nth-child(4) { transition-delay: 0.4s; }
+#mobile-menu.open a:nth-child(5) { transition-delay: 0.5s; }
     </style>
 </head>
 <body class="antialiased relative min-h-screen text-foreground bg-background">
 
-    <nav class="fixed top-2 left-2 right-2 z-[100] rounded-2xl border overflow-hidden backdrop-blur-sm bg-white/90 shadow-sm" style="border-radius:16px">
+    <nav class="fixed top-2 left-2 right-2 z-[100] rounded-2xl border bg-white shadow" style="border-radius:16px">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
+            <div class="flex justify-between items-center h-16 text-foreground">
+                
                 <div class="flex items-center">
-                    <a href="index.html" class="flex items-center px-4 py-1 gap-2">
-                        <img src="images/kuat-logo.png" alt="Kuat Solutions Logo" class="h-10 w-10 object-contain">
-                        <p class="text-2xl font-bold font-poppins">Kuat Solutions</p>
+                    <a href="index.html">
+                        <div class="flex items-center px-4 py-1">
+                            <img alt="Kuat Solutions Logo" width="40" height="40" class="object-contain h-10" src="images/kuat-logo.png">
+                            <p class="text-2xl font-bold font-poppins">Kuat Solutions</p>
+                        </div>
                     </a>
                 </div>
-                
+
                 <div class="sm:hidden">
-                    <button id="mobile-menu-btn" class="inline-flex items-center justify-center text-sm font-medium h-8 w-8 rounded-md hover:bg-gray-100 outline-none">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg>
+                    <button id="mobile-menu-btn" class="inline-flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-colors outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6">
+                            <path d="M4 5h16"></path>
+                            <path d="M4 12h16"></path>
+                            <path d="M4 19h16"></path>
+                        </svg>
                     </button>
                 </div>
 
                 <ul class="hidden sm:flex gap-8 items-center ml-auto">
-                    <li><a href="about.html" class="px-3 py-2 text-xl font-medium hover:text-gray-600 transition-colors">About</a></li>
-                    <li><a href="services.html" class="px-3 py-2 text-xl font-medium hover:text-gray-600 transition-colors">Services</a></li>
-                    <li><a href="products.html" class="px-3 py-2 text-xl font-medium hover:text-gray-600 transition-colors">Products</a></li>
-                    <li><a href="partners.html" class="px-3 py-2 text-xl font-medium hover:text-gray-600 transition-colors">Partners</a></li>
-                    <li><a href="contact.html" class="px-3 py-2 text-xl font-medium hover:text-gray-600 transition-colors">Contact</a></li>
+                    <li>
+                        <div class="px-3 py-2 text-xl rounded-md font-medium hover:bg-gray-50 transition-all">
+                            <a class="block" href="about.html">About</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="px-3 py-2 text-xl rounded-md font-medium hover:bg-gray-50 transition-all">
+                            <a class="block" href="services.html">Services</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="px-3 py-2 text-xl rounded-md font-medium hover:bg-gray-50 transition-all">
+                            <a class="block" href="products.html">Products</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="px-3 py-2 text-xl rounded-md font-medium hover:bg-gray-50 transition-all">
+                            <a class="block" href="partners.html">Partners</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="px-3 py-2 text-xl rounded-md font-medium hover:bg-gray-50 transition-all">
+                            <a class="block" href="contact.html">Contact</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden sm:hidden border-t bg-white">
-            <ul class="flex flex-col px-4 py-2 gap-2">
-                <li><a href="about.html" class="block px-3 py-2 text-lg font-medium">About</a></li>
-                <li><a href="services.html" class="block px-3 py-2 text-lg font-medium">Services</a></li>
-                <li><a href="products.html" class="block px-3 py-2 text-lg font-medium">Products</a></li>
-                <li><a href="partners.html" class="block px-3 py-2 text-lg font-medium">Partners</a></li>
-                <li><a href="contact.html" class="block px-3 py-2 text-lg font-medium">Contact</a></li>
-            </ul>
+
+        <div id="mobile-menu" class="sm:hidden border-t bg-white px-4 space-y-2 text-center">
+            <a href="about.html" class="block text-xl px-4 py-2 hover:bg-gray-50 rounded-lg font-medium">About</a>
+            <a href="services.html" class="block text-xl px-4 py-2 hover:bg-gray-50 rounded-lg font-medium">Services</a>
+            <a href="products.html" class="block text-xl px-4 py-2 hover:bg-gray-50 rounded-lg font-medium">Products</a>
+            <a href="partners.html" class="block text-xl px-4 py-2 hover:bg-gray-50 rounded-lg font-medium">Partners</a>
+            <a href="contact.html" class="block text-xl px-4 py-2 hover:bg-gray-50 rounded-lg font-medium">Contact</a>
         </div>
     </nav>
 
@@ -110,27 +168,27 @@
         </section>
 
         <section class="relative min-h-[70vh] gap-20 max-w-7xl mx-auto flex flex-col justify-center p-8 sm:p-16">
-            <h1 class="text-2xl whitespace-nowrap min-w-[20%] font-bold">Products</h1>
+            <h1 class="text-3xl whitespace-nowrap min-w-[20%] font-bold font-poppins">Products</h1>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <a href="products/hydraulics.html" class="group relative h-80 rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105">
                     <img src="images/motor.png" alt="Hydraulics" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/40 transition-opacity duration-300 group-hover:bg-black/50"></div>
                     <div class="absolute inset-0 flex items-center justify-center">
-                        <h2 class="text-4xl font-bold text-white drop-shadow-lg">Hydraulics</h2>
+                        <h2 class="text-4xl font-bold text-white drop-shadow-lg font-poppins">Hydraulics</h2>
                     </div>
                 </a>
                 <a href="products/bearings.html" class="group relative h-80 rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105">
                     <img src="images/bearings-mixed.jpg" alt="Bearings" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/40 transition-opacity duration-300 group-hover:bg-black/50"></div>
                     <div class="absolute inset-0 flex items-center justify-center">
-                        <h2 class="text-4xl font-bold text-white drop-shadow-lg">Bearings</h2>
+                        <h2 class="text-4xl font-bold text-white drop-shadow-lg font-poppins">Bearings</h2>
                     </div>
                 </a>
                 <a href="products/generator-sets.html" class="group relative h-80 rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105">
                     <img src="images/generators.jpg" alt="Generator Sets" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/40 transition-opacity duration-300 group-hover:bg-black/50"></div>
                     <div class="absolute inset-0 flex items-center justify-center">
-                        <h2 class="text-4xl font-bold text-white drop-shadow-lg">Generator Sets</h2>
+                        <h2 class="text-4xl font-bold text-white drop-shadow-lg font-poppins">Generator Sets</h2>
                     </div>
                 </a>
             </div>
@@ -138,7 +196,7 @@
 
         <section class="relative min-h-[70vh] gap-12 max-w-7xl mx-auto flex flex-col justify-center p-8 sm:p-16">
             <div class="flex flex-col gap-6">
-                <h1 class="text-2xl font-bold">About Us</h1>
+                <h1 class="text-3xl font-bold font-poppins">About Us</h1>
                 <p class="text-4xl text-muted-foreground font-normal leading-tight">
                     Kuat Solutions is an international industrial engineering and project support company operating between 
                     <span class="font-bold text-foreground">Hong Kong</span> and <span class="font-bold text-foreground">Europe</span>. 
@@ -162,11 +220,11 @@
 
         <section class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 text-center">
-                <h2 class="text-3xl font-bold mb-4 text-gray-900">Ready to Get Started?</h2>
+                <h2 class="text-3xl font-bold mb-4 text-gray-900 font-poppins">Ready to Get Started?</h2>
                 <p class="text-lg text-gray-600 mb-8">Contact our team today to discuss how we can support your industrial projects with our comprehensive services.</p>
-                <a href="javascript:void(0)" id="openModalBtn" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all bg-black text-white shadow-md hover:bg-gray-800 h-10 rounded-md px-6 cursor-pointer">
+                <button id="openModalBtn" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all bg-black text-white shadow-md hover:bg-gray-800 h-10 rounded-md px-6 cursor-pointer">
                     Get a Quote
-                </a>
+                </button>
             </div>
         </section>
 
@@ -174,44 +232,40 @@
 
     <div id="quoteModal" class="modal-overlay">
         <div class="bg-white rounded-2xl max-w-md w-full p-6 relative shadow-xl">
-            <button id="closeModalBtn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x w-5 h-5"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+            <button id="closeModalBtn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-900 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
             </button>
 
-            <h3 class="text-xl font-bold mb-6 text-gray-900">Request a Quote</h3>
+            <h3 class="text-2xl font-bold mb-6 text-gray-900 font-poppins">Request a Quote</h3>
 
             <form class="space-y-4">
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                        <input type="text" id="firstNameInput" class="w-full rounded-md border border-gray-300 px-3 py-1 text-sm focus:border-black outline-none" required>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                        <input type="text" class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black outline-none" required>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Last name</label>
-                        <input type="text" id="lastNameInput" class="w-full rounded-md border border-gray-300 px-3 py-1 text-sm focus:border-black outline-none" required>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                        <input type="text" class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black outline-none" required>
                     </div>
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Company</label>
-                    <input type="text" id="companyInput" class="w-full rounded-md border border-gray-300 px-3 py-1 text-sm focus:border-black outline-none" required>
+                    <input type="text" class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black outline-none" required>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Contact email</label>
-                    <input type="email" id="emailInput" class="w-full rounded-md border border-gray-300 px-3 py-1 text-sm focus:border-black outline-none" required>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Contact Email</label>
+                    <input type="email" class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black outline-none" required>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Phone number</label>
-                    <input type="tel" id="phoneInput" class="w-full rounded-md border border-gray-300 px-3 py-1 text-sm focus:border-black outline-none" required>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                    <input type="tel" class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black outline-none" required>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Address</label>
-                    <input type="text" id="addressInput" class="w-full rounded-md border border-gray-300 px-3 py-1 text-sm focus:border-black outline-none" required>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Your Request</label>
+                    <textarea rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-black resize-none" required></textarea>
                 </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Your request</label>
-                    <textarea id="requestInput" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-black resize-none" required></textarea>
-                </div>
-                <button type="submit" id="submitQuoteBtn" class="w-full bg-black text-white font-medium py-2 rounded-md hover:bg-gray-800 transition-colors">Submit</button>
+                <button type="submit" class="w-full bg-black text-white font-bold py-3 rounded-md hover:bg-gray-800 transition-colors">Submit Request</button>
             </form>
         </div>
     </div>
@@ -220,7 +274,7 @@
         <div class="container max-w-7xl mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
                 <div>
-                    <h3 class="text-lg font-bold mb-4 text-gray-900">Contact Us</h3>
+                    <h3 class="text-lg font-bold mb-4 text-gray-900 font-poppins">Contact Us</h3>
                     <div class="space-y-2">
                         <p class="text-sm text-gray-600">+7 700 090 77 52</p>
                         <p class="text-sm text-gray-600">+39 344 462 68 20</p>
@@ -228,13 +282,13 @@
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-lg font-bold mb-4 text-gray-900">Address</h3>
+                    <h3 class="text-lg font-bold mb-4 text-gray-900 font-poppins">Address</h3>
                     <p class="text-sm text-gray-600">Unit 2A, 17F Glenealy Tower<br>No.1 Glenealy, Hong Kong</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-bold mb-4 text-gray-900">Location</h3>
-                    <div class="w-full h-32 bg-gray-200 rounded-lg overflow-hidden">
-                        <iframe src="https://maps.google.com/maps?q=No.1%20Glenealy,%20Hong%20Kong&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <h3 class="text-lg font-bold mb-4 text-gray-900 font-poppins">Location</h3>
+                    <div class="w-full h-32 bg-gray-200 rounded-lg overflow-hidden border">
+                        <iframe src="https://maps.google.com/maps?q=No.1%20Glenealy,%20Hong%20Kong&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
             </div>
@@ -243,37 +297,43 @@
                     <div>
                         <p class="text-sm text-gray-600">© 2025 Kuat. All rights reserved.</p>
                     </div>
+                    <nav class="flex space-x-6">
+                        <a class="text-sm text-gray-600 hover:text-black" href="index.html">Home</a>
+                        <a class="text-sm text-gray-600 hover:text-black" href="about.html">About</a>
+                        <a class="text-sm text-gray-600 hover:text-black" href="products.html">Products</a>
+                        <a class="text-sm text-gray-600 hover:text-black" href="services.html">Services</a>
+                        <a class="text-sm text-gray-600 hover:text-black" href="contact.html">Contact</a>
+                    </nav>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
+        // Мобильное меню
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
 
         btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
+            menu.classList.toggle('open');
         });
 
+        // Модальное окно
         const modal = document.getElementById('quoteModal');
         const openBtn = document.getElementById('openModalBtn');
         const closeBtn = document.getElementById('closeModalBtn');
 
-        // Открыть модалку
         openBtn.addEventListener('click', (e) => {
             e.preventDefault();
             modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Запретить прокрутку сайта под модалкой
+            document.body.style.overflow = 'hidden'; 
         });
 
-        // Закрыть модалку по кнопке
         closeBtn.addEventListener('click', () => {
             modal.classList.remove('active');
             document.body.style.overflow = '';
         });
 
-        // Закрыть модалку при клике на темную область
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.classList.remove('active');
