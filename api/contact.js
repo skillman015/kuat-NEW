@@ -13,8 +13,8 @@ export default async function handler(req, res) {
                 'Authorization': `Bearer re_6fr9iGua_ALuYdpMcYZu54mPF1aJ8YKUV` // ТВОЙ КЛЮЧ ТУТ
             },
             body: JSON.stringify({
-                from: 'Kuat Solutions <onboarding@resend.dev>', 
-                to: 'tw3azz@gmail.com',
+            from: 'Kuat Solutions <info@kuat-solutions.com>', 
+            to: 'ceo@kuat-solutions.com',
                 subject: `New Quote Request: ${firstName} ${lastName}`,
                 html: `
                     <div style="font-family: sans-serif; line-height: 1.5;">
