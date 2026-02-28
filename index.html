@@ -350,5 +350,54 @@
             }
         });
     </script>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const quoteForm = document.querySelector('#quoteModal form');
+    const submitBtn = document.getElementById('submitQuoteBtn');
+
+    quoteForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Блокируем кнопку, чтобы не нажали дважды
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Sending...';
+
+        // Собираем данные по твоим ID
+        const formData = {
+            firstName: document.getElementById('firstNameInput').value,
+            lastName: document.getElementById('lastNameInput').value,
+            company: document.getElementById('companyInput').value,
+            email: document.getElementById('emailInput').value,
+            phone: document.getElementById('phoneInput').value,
+            address: document.getElementById('addressInput').value,
+            request: document.getElementById('requestInput').value
+        };
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                alert('Success! Your request has been sent.');
+                quoteForm.reset();
+                // Закрываем модалку (если у тебя есть функция закрытия)
+                document.getElementById('quoteModal').classList.remove('active');
+            } else {
+                alert('Error sending message. Please try again.');
+            }
+        } catch (error) {
+            console.error(error);
+            alert('Connection error. Check your internet.');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'Submit';
+        }
+    });
+});
+</script>
 </body>
 </html>
