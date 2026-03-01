@@ -538,5 +538,17 @@
         });
     });
     </script>
+    
+    <script>
+        document.querySelectorAll("input, textarea").forEach(el => {
+        el.addEventListener("invalid", function () {
+            this.setCustomValidity("Fill out this field");
+        });
+
+        el.addEventListener("input", function () {
+            this.setCustomValidity("");
+        });
+        });
+    </script>
 </body>
 </html>
