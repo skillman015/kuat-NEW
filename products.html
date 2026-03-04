@@ -171,9 +171,63 @@
                 stroke-dashoffset: 0; /* Контур становится полностью видимым */
             }
         }
+
+        /* Создаем фиксированный фоновый слой */
+        .bg-fixed-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Уходим на задний план */
+            /* Замените 'your-image.jpg' на нужное имя файла из папки images */
+            background-image: url('/images/machine-1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        /* Накладываем сероватый фильтр поверх фото */
+        .bg-fixed-overlay::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Это темно-синий цвет.
+               Вы можете менять 0.5 на большее/меньшее для яркости синего */
+            background-color: rgba(30, 58, 138, 0.5);
+
+            /* Добавляем режим смешивания, чтобы синий цвет
+               "пропитывал" фото, а не просто перекрывал его */
+            background-blend-mode: multiply;
+        }
+        /* Делаем заголовки белыми, чтобы они не терялись на фото */
+        h1, h2 {
+            color: white !important;
+        }
+        p.text-gray-600 {
+            color: #e5e7eb !important; /* Светло-серый для текста */
+        }
+        main {
+            background: transparent !important;
+        }
+        /* Добавляем белую рамку всем карточкам в сетке */
+        .grid a.group {
+            border: 2px solid white;
+            /* Чтобы рамка не "съедала" скругление углов фото: */
+            background-clip: padding-box;
+        }
+
+        /* Опционально: можно сделать рамку ярче при наведении */
+        .grid a.group:hover {
+            border-color: rgba(255, 255, 255, 1);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
     </style>
 </head>
 <body class="antialiased bg-white text-gray-900 min-h-screen">
+    <div class="bg-fixed-overlay"></div>
 
     <nav class="fixed top-2 left-2 right-2 z-[100] rounded-2xl border bg-white shadow" style="border-radius:16px">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
